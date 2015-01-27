@@ -24,5 +24,9 @@ except OSError as e:
 
 
 def poll():
-	value = clib_polling.main()
-	print(value)
+	value = clib_polling.poll()
+	print(value,"back in python")
+	
+def setup():
+	value = clib_polling.setup()
+	print(value,"back in python")

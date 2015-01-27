@@ -186,7 +186,7 @@ static const uint8_t AppSelection1[20] = {0x00, 0xA4, 0x04, 0x00, 0x0E, 0x31, 0x
 static const uint8_t AppSelection2[20] = {0x00, 0xA4, 0x04, 0x00, 0x0E, 0x32, 0x50, 0x41, 0x59,
 		0x2E, 0x53, 0x59, 0x53, 0x2E, 0x44, 0x44, 0x46, 0x30, 0x31, 0x00};
 
-int main(int argc, char **argv)
+int setup(int argc, char **argv)			// This was main in the orignal code
 {
     phbalReg_R_Pi_spi_DataParams_t spi_balReader;
     void *balReader;
@@ -242,15 +242,22 @@ int main(int argc, char **argv)
         printf("Failed to set hal connection SPI\n");
         return 4;
     }
+	
+	return 0;
+}    
 
     /**************************************************************************
      * Begin the polling
      *************************************************************************/
+int poll()
+{
+    phhalHw_Rc523_DataParams_t halReader;
+    void *pHal;
+	pHal = &halReader;
+ 
     printf("/****** Begin Polling ******/\n");
-
     for(;;)
     {
-
         /*
          * Detecting Mifare cards */
         if (DetectMifare(pHal))
@@ -264,6 +271,7 @@ int main(int argc, char **argv)
         {
             /* reset the IC  */
             readerIC_Cmd_SoftReset(pHal);
+			return 5;
         }
         /*
          * Detecting Typ B cards */
@@ -502,7 +510,6 @@ uint8_t DetectFelica(void *halReader)
     {
         if (pIDmPMmOut[0] == 0x01 && pIDmPMmOut[1] == 0xFE)
             printf("NFC Forum compliant device detected\n");
-            return "felica";
         else
             printf("JIS X 6319-4 compatible card detected\n");
 
