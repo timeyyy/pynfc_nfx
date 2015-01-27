@@ -243,7 +243,7 @@ int setup(int argc, char **argv)			// This was main in the orignal code
         return 4;
     }
 	
-	return 0;
+	return pHal;
 }    
 
     /**************************************************************************
@@ -253,14 +253,6 @@ int poll()
 {
     phhalHw_Rc523_DataParams_t halReader;
     void *pHal;
-	status = phhalHw_Rc523_Init(&halReader,
-                                sizeof(phhalHw_Rc523_DataParams_t),
-                                balReader,
-                                0,
-                                bHalBufferReader,
-                                sizeof(bHalBufferReader),
-                                bHalBufferReader,
-                                sizeof(bHalBufferReader));
     pHal = &halReader;
  
     printf("/****** Begin Polling ******/\n");
@@ -296,7 +288,7 @@ int poll()
         sleep(1);
     }
 
-    phhalHw_FieldOff(pHal);
+    printf(pHal);
     return 0;
 }
 
