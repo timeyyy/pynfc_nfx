@@ -502,6 +502,7 @@ uint8_t DetectFelica(void *halReader)
     {
         if (pIDmPMmOut[0] == 0x01 && pIDmPMmOut[1] == 0xFE)
             printf("NFC Forum compliant device detected\n");
+            return "felica";
         else
             printf("JIS X 6319-4 compatible card detected\n");
 

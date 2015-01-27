@@ -15,11 +15,14 @@ Wrapper for some c code provided by the manufacturers
 '''
 
 try:
-	print(BUILD_PATH)
+	#~ print(BUILD_PATH)
 	#~ self.test = ctypes.CDLL(os.path.join(BUILD_PATH, '_test.so'))
-	test = ctypes.CDLL(os.path.join(BUILD_PATH, 'libcard_polling.so'))
+	clib_polling = ctypes.CDLL(os.path.join(BUILD_PATH, 'libcard_polling.so'))
 except OSError as e:
 	print('The c library could not be found!')
 	raise e
-def getob():
-	return test
+
+
+def poll():
+	value = clib_polling.main()
+	print(value)
