@@ -1,1 +1,1 @@
-from .pynfc_nfx import pynfc_nfx
+from .pynfc_nfx import getob

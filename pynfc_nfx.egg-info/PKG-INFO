@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: pynfc-nfx
+Version: 1.0
+Summary: A python Interface for interfacing with the Raspberry Pi and the EXPLORE-NFC module
+Home-page: https://github.com/timeyyy/pynfc_nfx
+Author: Timothy C Eichler
+Author-email: timeyyy_da_man@hotmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
