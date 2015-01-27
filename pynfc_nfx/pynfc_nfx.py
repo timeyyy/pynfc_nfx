@@ -1,6 +1,10 @@
+'''
+Wrapper for some c code provided by the manufacturers
+'''
 
 import ctypes
 import os
+import time
 
 # By importing any sub module i can get the location of this module, required by ctypes.CDLL
 # Dunno why but it wasn't finding it after being installed
@@ -10,9 +14,7 @@ def mod_path(mod):
 PKG_PATH = mod_path(blank_module)
 BUILD_PATH = os.path.join(PKG_PATH, 'build')
 
-'''
-Wrapper for some c code provided by the manufacturers
-'''
+NUM_TO_INTERFACE = {5:'felica'}
 
 try:
 	#~ print(BUILD_PATH)
@@ -24,9 +26,15 @@ except OSError as e:
 
 
 def poll():
-	value = clib_polling.poll()
-	print(value,"back in python")
-	
+	while 1:
+		index = clib_polling.setup()
+		try:
+			card = NUM_TO_INTERFACE[index]
+			print(card,"back in python, do sth with the card now...")
+		except KeyError:
+			pass
+		time.sleep(0.5)
 def setup():
-	value = clib_polling.setup()
+	index = clib_polling.setup()
+	card = NUM_TO_INTERFACE[index]
 	print(value,"back in python")
