@@ -253,7 +253,15 @@ int poll()
 {
     phhalHw_Rc523_DataParams_t halReader;
     void *pHal;
-	pHal = &halReader;
+	status = phhalHw_Rc523_Init(&halReader,
+                                sizeof(phhalHw_Rc523_DataParams_t),
+                                balReader,
+                                0,
+                                bHalBufferReader,
+                                sizeof(bHalBufferReader),
+                                bHalBufferReader,
+                                sizeof(bHalBufferReader));
+    pHal = &halReader;
  
     printf("/****** Begin Polling ******/\n");
     for(;;)
