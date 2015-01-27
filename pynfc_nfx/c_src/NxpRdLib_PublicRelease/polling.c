@@ -243,18 +243,18 @@ int setup(int argc, char **argv)			// This was main in the orignal code
         return 4;
     }
 	
-	return pHal;
-}    
+	//~ return 0;
+//~ }    
 
     /**************************************************************************
      * Begin the polling
      *************************************************************************/
-int poll()
-{
-    phhalHw_Rc523_DataParams_t halReader;
-    void *pHal;
-    pHal = &halReader;
- 
+//~ int poll()
+//~ {
+    //~ phhalHw_Rc523_DataParams_t halReader;
+    //~ void *pHal;
+    //~ pHal = &halReader;
+	//~ setup(int,char);
     printf("/****** Begin Polling ******/\n");
     for(;;)
     {
