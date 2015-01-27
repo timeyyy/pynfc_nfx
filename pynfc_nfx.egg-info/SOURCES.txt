@@ -1,0 +1,6 @@
+polling.c
+setup.py
+pynfc_nfx.egg-info/PKG-INFO
+pynfc_nfx.egg-info/SOURCES.txt
+pynfc_nfx.egg-info/dependency_links.txt
+pynfc_nfx.egg-info/top_level.txt
