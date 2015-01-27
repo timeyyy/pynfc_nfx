@@ -17,7 +17,7 @@ source_group(src "${PROJECT_SOURCE_DIR}/../polling.c")
 file(GLOB_RECURSE SOURCE_TMP "${PROJECT_SOURCE_DIR}/*.c" )
 list(APPEND SOURCE ${SOURCE_TMP})
 
-#~ add_library(${PROJECT_NAME} ${SOURCE})					This was added by nxppy dude
+add_library(${PROJECT_NAME} ${SOURCE})					#This was added by nxppy dude
 
 
 add_executable(${PROJECT_NAME} ${SOURCE})
